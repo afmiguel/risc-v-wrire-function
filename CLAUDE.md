@@ -29,7 +29,7 @@ Build outputs land in `build/`: `wire.uf2` (flash to Pico), `wire.elf`, `wire.bi
 
 The project uses a two-layer design so students can write clean assembly without dealing with raw SDK calling conventions:
 
-- **`wire.S`** — RISC-V assembly entry point (`main`). Configures pin 12 as input and pin 15 as output, then loops forever reading pin 12 and writing the same value to pin 15.
+- **`main.S`** — RISC-V assembly entry point (`main`). Configures pin 12 as input and pin 15 as output, then loops forever reading pin 12 and writing the same value to pin 15.
 - **`pico_gpio_api.c`** — Thin C wrapper around the Pico SDK. Exposes three functions callable from assembly with simple integer arguments:
   - `pico_gpio_init(pin, is_output)` — calls `gpio_init` + `gpio_set_dir`
   - `pico_gpio_write(pin, value)` — calls `gpio_put`

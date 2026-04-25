@@ -25,10 +25,10 @@ This project demonstrates how to implement a logic wire in RISC-V Assembly: pin 
 ### Architecture
 
 ```
-wire.S  ──calls──►  pico_gpio_api.c  ──calls──►  Pico SDK  ──►  Hardware
+main.S  ──calls──►  pico_gpio_api.c  ──calls──►  Pico SDK  ──►  Hardware
 ```
 
-### `wire.S` — Assembly entry point
+### `main.S` — Assembly entry point
 
 Defines configuration constants and implements `main`:
 
@@ -112,7 +112,7 @@ Build outputs: `wire.uf2`, `wire.elf`, `wire.bin`, `wire.hex` inside `build/`.
 
 ```
 risc-v-wrire-function/
-├── wire.S                # RISC-V Assembly entry point (main)
+├── main.S                # RISC-V Assembly entry point (main)
 ├── pico_gpio_api.c       # C GPIO wrapper callable from assembly
 ├── CMakeLists.txt        # CMake build configuration
 ├── pico_sdk_import.cmake # Pico SDK import helper

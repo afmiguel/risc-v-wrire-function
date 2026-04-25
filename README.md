@@ -4,18 +4,18 @@ Educational example of GPIO control using RISC-V Assembly for Raspberry Pi Pico 
 
 ## Description
 
-This project demonstrates how to implement a logic wire in RISC-V Assembly: pin 14 is configured as input and pin 15 as output. The program loops continuously, reading the logic level on pin 14 and immediately copying it to pin 15, with no delay. Rather than accessing hardware registers directly, the assembly code calls a thin C API layer (`pico_gpio_api.c`) that wraps the Pico SDK.
+This project demonstrates how to implement a logic wire in RISC-V Assembly: pin 12 is configured as input and pin 15 as output. The program loops continuously, reading the logic level on pin 12 and immediately copying it to pin 15, with no delay. Rather than accessing hardware registers directly, the assembly code calls a thin C API layer (`pico_gpio_api.c`) that wraps the Pico SDK.
 
 ## Hardware
 
 - **Board:** Raspberry Pi Pico 2 W
-- **Input Pin:** GPIO 14
+- **Input Pin:** GPIO 12
 - **Output Pin:** GPIO 15
 - **Architecture:** RISC-V
 
 ## Behaviour
 
-| Pin 14 (input) | Pin 15 (output) |
+| Pin 12 (input) | Pin 15 (output) |
 |----------------|-----------------|
 | 1 (high)       | 1 (high)        |
 | 0 (low)        | 0 (low)         |
@@ -33,10 +33,10 @@ wire.S  ──calls──►  pico_gpio_api.c  ──calls──►  Pico SDK  �
 Defines configuration constants and implements `main`:
 
 1. **GPIO Initialisation:**
-   - Calls `pico_gpio_init(14, 0)` to configure pin 14 as input
+   - Calls `pico_gpio_init(12, 0)` to configure pin 12 as input
    - Calls `pico_gpio_init(15, 1)` to configure pin 15 as output
 2. **Main Loop:**
-   - Read pin 14 via `pico_gpio_read(14)` → result in `a0`
+   - Read pin 12 via `pico_gpio_read(12)` → result in `a0`
    - Write result to pin 15 via `pico_gpio_write(15, a0)`
    - Repeat indefinitely (no delay)
 

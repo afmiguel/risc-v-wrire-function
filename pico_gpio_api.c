@@ -69,9 +69,9 @@ void pico_gpio_write(int pin, int value) {
  * Returns an integer (0 or 1) so the result can be used directly in
  * assembly without type conversion.
  *
- * Assembly call example (read pin 14):
+ * Assembly call example (read pin 12):
  * @code
- *   li  a0, 14   # pin
+ *   li  a0, 12   # pin
  *   call pico_gpio_read
  *   # result in a0: 1 = high, 0 = low
  * @endcode

@@ -5,7 +5,6 @@
 
 .section .text
 .global main
-.type main, @function
 
 # Definições para os estudantes
 .equ INPUT_PIN,  12
@@ -35,5 +34,3 @@ wire_loop:
     call pico_gpio_write
 
     j    wire_loop
-
-.size main, .-main

@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable
 add_executable(wire
-    wire.S
+    main.S
     pico_gpio_api.c
     )
 
